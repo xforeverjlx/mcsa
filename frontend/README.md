@@ -23,4 +23,4 @@ yarn lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### django seetup from https://www.youtube.com/watch?v=Yg5zkd9nm6w
+django seetup from https://www.youtube.com/watch?v=Yg5zkd9nm6w
