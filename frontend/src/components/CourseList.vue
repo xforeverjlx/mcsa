@@ -4,6 +4,23 @@
       <div class="column-is-12">
         <h2 class="is-size-2 has-text-centered">Courses</h2>
       </div>
+
+      <form method="get" action="/search">
+        <div class="field has-addons">
+          <div class="control">
+            <input
+              type="text"
+              class="input"
+              placeholder="Class name or number or prof"
+              name="query"
+            />
+          </div>
+          <div class="control">
+            <button class="button is-success">search</button>
+          </div>
+        </div>
+      </form>
+
       <div
         class="column is-3"
         v-for="course in allCourses"
