@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'djoser',
-    'courses'
+    'courses',
+    'webscrapers',
 ]
 
 CORS_ALLOWED_ORIGINS = [
