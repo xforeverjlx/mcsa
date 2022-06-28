@@ -11,17 +11,42 @@
             <input
               type="text"
               class="input"
-              placeholder="Class name or number or prof"
+              placeholder="Class name"
               name="query"
             />
+            <input
+              type="text"
+              class="input"
+              placeholder="Class number"
+              name="query"
+            />
+            <input
+              type="text"
+              class="input"
+              placeholder="Class prof"
+              name="prof"
+            />
+            <select name="offered">
+              <option value="">Anytime</option>
+              <option value="Fall">FA</option>
+              <option value="Spring">SP</option>
+            </select>
+            <select name="median">
+              <option value="any">Any</option>
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+            </select>
           </div>
+
           <div class="control">
             <button class="button is-success">search</button>
           </div>
         </div>
       </form>
 
-      <div
+      <!-- <div
         class="column is-3"
         v-for="course in allCourses"
         v-bind:key="course.id"
@@ -32,7 +57,7 @@
           <p class="is-size-6 has-text-grey">{{ course.prof }}</p>
           <p class="is-size-6 has-text-grey">{{ course.name }}</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
