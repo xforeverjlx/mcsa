@@ -1,12 +1,54 @@
 <template>
   <div class="page-search">
+    <form method="get" action="/search">
+      <!-- <form method="get" action=""> -->
+      <div class="field has-addons">
+        <div class="control">
+          <input
+            type="text"
+            class="input"
+            placeholder="Class name"
+            name="className"
+          />
+          <input
+            type="text"
+            class="input"
+            placeholder="Class number"
+            name="query"
+          />
+          <input
+            type="text"
+            class="input"
+            placeholder="Class prof"
+            name="prof"
+          />
+          <select name="offered">
+            <option value="">Anytime</option>
+            <option value="Fall">FA</option>
+            <option value="Spring">SP</option>
+          </select>
+          <select name="median">
+            <option value="any">Any</option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <button class="button is-success">search</button>
+        </div>
+      </div>
+    </form>
+
     <div class="columns is-multiline">
       <div class="column is-12">
         <h1 class="title">Search</h1>
         <h2 class="is-size-5 has-text-grey">
-          Search term: "{{ query }}" taught by "{{ prof }}" during the "{{
-            offered
-          }}" with a median of at least"{{ median }}"
+          Search term: "{{ query }}" with "{{ className }}" in its name, taught
+          by "{{ prof }}" during the "{{ offered }}" with a median of at
+          least"{{ median }}"
         </h2>
       </div>
 
@@ -33,7 +75,7 @@ export default {
       prof: "",
       offered: "",
       median: "",
-      name: "",
+      className: "",
       // toSearch: false,
     };
   },
@@ -57,8 +99,8 @@ export default {
       this.median = params.get("median");
       // toSearch = true;
     }
-    if (params.get("name")) {
-      this.name = params.get("name");
+    if (params.get("className")) {
+      this.className = params.get("className");
     }
     this.performSearch();
     // if (this.toSearch) {
@@ -74,7 +116,7 @@ export default {
           offered: this.offered,
           prof: this.prof,
           median: this.median,
-          name: this.name,
+          className: this.className,
         })
         .then((response) => {
           this.courses = response.data;

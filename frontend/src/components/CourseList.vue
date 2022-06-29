@@ -12,7 +12,7 @@
               type="text"
               class="input"
               placeholder="Class name"
-              name="query"
+              name="className"
             />
             <input
               type="text"
@@ -63,30 +63,30 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
-export default {
-  name: "CourseList",
-  data() {
-    return {
-      allCourses: [],
-    };
-  },
-  components: {},
-  mounted() {
-    this.getCourses();
-  },
-  methods: {
-    getCourses() {
-      axios
-        .get("/api/v1/courses/")
-        .then((response) => {
-          this.allCourses = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
-};
+// export default {
+//   name: "CourseList",
+//   data() {
+//     return {
+//       allCourses: [],
+//     };
+//   },
+//   components: {},
+//   mounted() {
+//     this.getCourses();
+//   },
+//   methods: {
+//     getCourses() {
+//       axios
+//         .get("/api/v1/courses/")
+//         .then((response) => {
+//           this.allCourses = response.data;
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//     },
+//   },
+// };
 </script>

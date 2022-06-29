@@ -1,0 +1,10 @@
+backend: 
+add webscraping python files: change SP22 format to be like FA22
+
+frontend: 
+shift search bar into page
+make everything prettier
+
+general:
+deploy server
+write docs
