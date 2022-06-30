@@ -24,6 +24,7 @@
       About
     </p>
     <!-- see https://quasar.dev/vue-components/card -->
+    <!-- <div class="row items-start"> -->
     <div
       class="q-pa-md row items-start q-gutter-md"
       v-for="item in data.info"
@@ -31,14 +32,18 @@
     >
       <q-card class="card">
         <q-img :src="require(`../assets/img/${item.img}`)">
-          <div class="text-h5 absolute-bottom text-right">{{ item.title }}</div>
+          <div class="text-h5 absolute-bottom text-right">
+            {{ item.title }}
+          </div>
         </q-img>
 
         <q-card-section
           ><div class="q-pt-none">{{ item.body }}</div></q-card-section
         >
       </q-card>
+      <!-- </div> -->
     </div>
+
     <p
       class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
     >
@@ -75,6 +80,6 @@ export default {
 p
   color: $red-8
 .card
-  width: 100%
-  max-width: 250px
+  width: 45%
+  max-width:500px
 </style>

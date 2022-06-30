@@ -2,15 +2,14 @@
 
 # Maintainance:
 ## Backend Data
-### Median Grades
-- Download latest Median Grades List from Reddit (walled by 2FA so can't automate)
+- Download latest Median Grades List from Reddit (walled by 2FA so can't automate) and rename to CornellMedianGrades.csv
+- Change urls.json in "webscrapers" folder
+
 - Delete .sqlite database and everything in the "migrations" folder except init
+
+- Run all python files in the folder
 - Run python manage.py makemmigrations
 - Run python manage.py migrate
-
-### All other data
-- Change urls.json in "webscrapers" folder
-- Run all python files in the folder
 
 ## Frontend
 - assets are stored in src/assets/images
