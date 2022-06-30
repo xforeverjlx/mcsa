@@ -1,0 +1,19 @@
+{
+    "description": "Mainland Chinese Student Association (MCSA) is ...",
+    "img": "home.jpg",
+    "imgText": "MCSA",
+    "info": [
+        {
+            "title": "Professionalism",
+            "body": "Industry blah blah blah.",
+            "img": "fam.jpg",
+            "linker": "professional"
+        },
+        {
+            "title": "Community",
+            "body": "fwen blah blah.",
+            "img": "slope.jpg",
+            "linker": "community"
+        }
+    ]
+}
