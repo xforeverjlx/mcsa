@@ -15,14 +15,16 @@ class Course(models.Model):
   offered = models.TextField()
 
   median = models.TextField()
-  semester = models.TextField()
+  median_semester = models.TextField()
+  median_prof = models.TextField()
 
   prof_diff = models.TextField()
-  prof_rat = models.TextField()
+  prof_rating = models.TextField()
+  prof_num_rating = models.TextField()
 
   class_diff = models.TextField()
-  rating = models.TextField()
-  workload = models.TextField()
+  class_rating = models.TextField()
+  class_workload = models.TextField()
 
   class Meta: 
     ordering = ('median', )

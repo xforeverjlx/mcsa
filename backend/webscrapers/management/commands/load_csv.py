@@ -18,27 +18,30 @@ class Command(BaseCommand):
     with open(file_path, "r") as file:
       data = list(csv.reader(file, delimiter=","))
       for row in data[1:]:
- 
-        Course.objects.create(
-          dept = row[1],
-          number = row[2],
-          name = row[3],
-          prof = row[4],
-          dept_and_number = row[11],
+        try:
+          Course.objects.create(
+            dept = row[2],
+            number = int(float(row[3])),
+            name = row[4],
+            prof = row[5],
+            dept_and_number = row[12],
 
-          start_time = row[5],
-          end_time = row[6],
-          prereqs = row[9],
-          offered = row[10],
+            start_time = row[6],
+            end_time = row[7],
+            prereqs = row[10],
+            offered = row[11],
 
-          median = row[14],
-          semester = row[15],
+            class_diff = row[13],
+            class_rating = row[14],
+            class_workload = row[15],
 
-          prof_rat = row[23],
-          prof_diff = row[24],
+            prof_num_rating = row[16],
+            prof_rating = row[17],
+            prof_diff = row[18],
 
-          
-          class_diff = row[26],
-          rating = row[27],
-          workload = row[28]
-        )
+            median_prof = row[19],
+            median = row[20],
+            median_semester = row[21],
+          )
+        except: 
+          pass

@@ -10,6 +10,7 @@
 - Run all python files in the folder
 - Run python manage.py makemmigrations
 - Run python manage.py migrate
+- Run python manage.py load_csv webscrapers/data/merged_data.csv
 
 ## Frontend
 - assets are stored in src/assets/images
