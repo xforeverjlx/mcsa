@@ -126,11 +126,30 @@ const columns = [
     align: "left",
     field: (row) => row.name,
   },
-
   {
     name: "prof",
     label: "Professor",
     field: (row) => row.prof,
+  },
+  {
+    name: "prereq",
+    label: "Pre-Requisite",
+    field: (row) => row.prereqs,
+  },
+  {
+    name: "starttime",
+    label: "Start Time",
+    field: (row) => row.start_time,
+  },
+  {
+    name: "endtime",
+    label: "End Time",
+    field: (row) => row.end_time,
+  },
+  {
+    name: "offered",
+    label: "Availability",
+    field: (row) => row.offered,
   },
   {
     name: "median",
@@ -139,6 +158,46 @@ const columns = [
     sortable: true,
     // sortOrder: "da",
     sort: (a, b) => dict[a] - dict[b],
+  },
+  {
+    name: "median_semester",
+    label: "Semester of Median",
+    field: (row) => row.median_semester,
+  },
+  {
+    name: "median_prof",
+    label: "Prof of Median",
+    field: (row) => row.median_prof,
+  },
+  {
+    name: "prof_diff",
+    label: "Prof's Difficulty",
+    field: (row) => row.prof_diff,
+  },
+  {
+    name: "prof_rating",
+    label: "Prof's Rating",
+    field: (row) => row.prof_rating,
+  },
+  {
+    name: "prof_num_rating",
+    label: "Prof's # of Ratings",
+    field: (row) => row.prof_num_rating,
+  },
+  {
+    name: "class_diff",
+    label: "Class' Difficulty",
+    field: (row) => row.class_diff,
+  },
+  {
+    name: "class_rating",
+    label: "Class' Rating",
+    field: (row) => row.class_rating,
+  },
+  {
+    name: "class_workload",
+    label: "Class' Workload",
+    field: (row) => row.class_workload,
   },
 ];
 import axios from "axios";
