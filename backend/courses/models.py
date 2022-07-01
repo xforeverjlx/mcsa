@@ -7,6 +7,7 @@ class Course(models.Model):
   number = models.IntegerField()
   name = models.TextField()
   prof = models.TextField()
+  location = models.TextField()
   dept_and_number = models.TextField()
 
   prereqs = models.TextField()
@@ -20,11 +21,11 @@ class Course(models.Model):
 
   prof_diff = models.TextField()
   prof_rating = models.TextField()
-  prof_num_rating = models.TextField()
+  prof_num_rating = models.IntegerField()
 
-  class_diff = models.TextField()
-  class_rating = models.TextField()
-  class_workload = models.TextField()
+  class_diff = models.FloatField()
+  class_rating = models.FloatField()
+  class_workload = models.FloatField()
 
   class Meta: 
     ordering = ('median', )

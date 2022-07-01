@@ -28,20 +28,21 @@ class Command(BaseCommand):
 
             start_time = row[6],
             end_time = row[7],
+            location = row[8],
             prereqs = row[10],
             offered = row[11],
 
-            class_diff = row[13],
-            class_rating = row[14],
-            class_workload = row[15],
+            class_diff = round(float(row[13]), 1),
+            class_rating = round(float(row[14]),1),
+            class_workload = round(float(row[15]),1),
 
-            prof_num_rating = row[16],
-            prof_rating = row[17],
-            prof_diff = row[18],
+            prof_num_rating = int(float(row[17])),
+            prof_rating = row[18],
+            prof_diff = row[19],
 
-            median_prof = row[19],
-            median = row[20],
-            median_semester = row[21],
+            median_prof = row[20],
+            median = row[21],
+            median_semester = row[22],
           )
         except: 
           pass
