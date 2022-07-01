@@ -5,7 +5,7 @@
 - Download latest Median Grades List from Reddit (walled by 2FA so can't automate) and rename to CornellMedianGrades.csv
 - Change urls.json in "webscrapers" folder
 
-- Delete .sqlite database and everything in the "migrations" folder except init
+- Delete .sqlite database and everything in the "courses/migrations" folder except init
 
 - Run all python files in the folder
 - Run python manage.py makemigrations
