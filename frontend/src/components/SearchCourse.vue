@@ -119,6 +119,7 @@ const columns = [
     name: "dept_and_number",
     label: "Class Number",
     field: (row) => row.dept_and_number,
+    style: "background-color: #EAFAF1",
   },
   {
     name: "name",
@@ -130,6 +131,7 @@ const columns = [
     name: "prof",
     label: "Professor",
     field: (row) => row.prof,
+    style: "background-color: #EAFAF1",
   },
   {
     name: "prereq",
@@ -158,16 +160,19 @@ const columns = [
     sortable: true,
     // sortOrder: "da",
     sort: (a, b) => dict[a] - dict[b],
+    style: "background-color: #EAFAF1",
   },
   {
     name: "median_semester",
     label: "Semester of Median",
     field: (row) => row.median_semester,
+    style: "background-color: #EAFAF1",
   },
   {
     name: "median_prof",
     label: "Prof of Median",
     field: (row) => row.median_prof,
+    style: "background-color: #EAFAF1",
   },
   {
     name: "prof_diff",
