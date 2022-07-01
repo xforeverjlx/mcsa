@@ -8,7 +8,7 @@
 - Delete .sqlite database and everything in the "migrations" folder except init
 
 - Run all python files in the folder
-- Run python manage.py makemmigrations
+- Run python manage.py makemigrations
 - Run python manage.py migrate
 - Run python manage.py load_csv webscrapers/data/merged_data.csv
 
