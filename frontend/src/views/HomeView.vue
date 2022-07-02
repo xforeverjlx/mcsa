@@ -1,6 +1,10 @@
 <template>
   <!-- <div class="home" style="background-color: #0b141c"> -->
-  <div class="home" style="background-color: rgb(255, 255, 255)">
+  <!-- <div class="home" style="background-color: rgb(255, 255, 255)"> -->
+  <div
+    class="home"
+    style="background-image: linear-gradient(#033159, rgb(255, 255, 255))"
+  >
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
 
     <div>
@@ -11,7 +15,18 @@
         }"
       > -->
       <!-- <div class="white-box" v-bind:style="{ opacity: computedOpacity }"> -->
-      <div class="row justify-between">
+      <div class="row">
+        <div class="col full-height full-width text-center">
+          <div class="mcsa">
+            <!-- see http://web.simmons.edu/~grabiner/comm244/weekthree/css-basic-properties.html -->
+            <p
+              class="absolute-center white--text font-weight-normal text-uppercase title"
+            >
+              M C S A
+            </p>
+          </div>
+        </div>
+
         <q-parallax class="align-center" :height="p_height">
           <template v-slot:media>
             <img
@@ -19,20 +34,24 @@
               img-class="parrallax"
               class="parallax"
               v-bind:style="{ opacity: computedOpacity }"
+              background-blend-mode="multiply"
             />
           </template>
-          <p
-            class="mx-2 d-flex justify-center text-h2 white--text font-weight-normal text-uppercase title"
-          >
-            M C S A
-          </p>
-
-          <p
-            class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
-          >
-            About
-          </p>
-          <div class="row">
+          <div class="row full-width fixed-top">
+            <NavBar />
+            <router-view />
+          </div>
+          <div class="row" style="height: 1000px"></div>
+          <div class="row q-gutter-y-xl">
+            <div class="about">
+              <p
+                class="about text-h2 font-weight-medium text-uppercase text-center mt-16 primary--text"
+              >
+                About
+              </p>
+            </div>
+          </div>
+          <div class="desc row">
             <p class="on-right">{{ data.description }}</p>
           </div>
           <!-- see https://quasar.dev/vue-components/card -->
@@ -43,10 +62,10 @@
       v-bind:key="item.title"
     > -->
 
-          <div class="row justify-center q-pa-xl q-gutter-xl items-center">
+          <div class="row justify-center q-pa-xl q-gutter-xl">
             <div v-for="item in data.info" v-bind:key="item.title">
               <div class="col">
-                <q-card class="card">
+                <q-card class="card text-white" style="background: #0b141c">
                   <q-img
                     :src="require(`../assets/img/${item.img}`)"
                     :ratio="16 / 9"
@@ -66,15 +85,17 @@
               </div>
             </div>
           </div>
+          <div class="row" style="height: 100px"></div>
           <div class="row">
-            <router-link to="/search"
+            <router-link to="/search" style="text-decoration: none"
               ><p
-                class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
+                class="toSearch text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
               >
-                选课宝典
+                &gt;&gt; Search Courses &lt;&lt;
               </p></router-link
             >
           </div>
+          <div class="row" style="height: 200px"></div>
         </q-parallax>
       </div>
     </div>
@@ -91,21 +112,21 @@
 // @ is an alias to /src
 // import SearchCourse from "@/components/SearchCourse.vue";
 import data from "../assets/json/home.json";
+import NavBar from "../components/NavBar.vue";
 // import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "HomeView",
   data() {
     return {
-      p_opacity: 0.9,
-      p_height: 2800,
+      p_opacity: 0.3,
+      p_height: 1900,
       data: data,
     };
   },
 
   components: {
-    // HelloWorld,
-    // SearchCourse,
+    NavBar,
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
@@ -123,22 +144,32 @@ export default {
       var scrollTop = window.top.scrollY;
       // console.log(scrollTop);
       var elementHeight = this.p_height;
-      // this.p_opacity = 0.1;
       this.p_opacity = Math.max(
-        0.3,
-        1 - (1 - (elementHeight - 2 * scrollTop) / elementHeight) * 0.8
+        0.1,
+        0.3 - (1 - (elementHeight - 2 * scrollTop) / elementHeight) * 0.8
       );
-      // this.p_opacity = 0;
-      // console.log((elementHeight - 10 * scrollTop) / elementHeight);
+      // this.p_opacity = 0.1;
+      console.log(this.p_opacity);
     },
   },
 };
 </script>
 <!-- see https://quasar.dev/style/color-palette -->
 <style lang="sass">
-p
+.desc
+  font-size:18px
+
+.toSearch
   color: #0b141c
 
+.mcsa
+  color: #fff
+  font-size: 120px
+
+.about
+  font-size:100px
+  color: #0b141c
+  font-weight: bold
 
 .white-box
   position: absolute
@@ -146,9 +177,12 @@ p
   left: 0
   width: 100%
   height: 100%
-  background: rgb(0,0,0)
+
   opacity: 0.9
 
+.card
+  width: 100%
+  max-width: 400px
 
 .parallax
   filter: blur(0px)

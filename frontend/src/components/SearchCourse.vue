@@ -1,52 +1,72 @@
 <template>
-  <div class="page-search" style="background-color: #0b141c">
-    <p
-      class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
-    >
-      选课宝典
-    </p>
+  <!-- <div class="page-search" style="background-color: #0b141c"> -->
+  <div
+    class="page-search"
+    style="background-image: linear-gradient(#033159, rgb(255, 255, 255))"
+  >
+    <!-- <div class="row" style="height: 100px"></div> -->
+    <div class="row full-width">
+      <NavBar />
+      <router-view />
+    </div>
+    <div class="row text-white justify-center q-pa-sm">
+      <p
+        class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
+      >
+        Search Courses
+      </p>
+    </div>
+    <div class="row justify-center">
+      <form method="get" action="/search">
+        <!-- <form method="get" action=""> -->
+        <div class="field has-addons">
+          <div class="control">
+            <input
+              type="text"
+              class="input"
+              placeholder="Class name"
+              name="className"
+            />
+            <input
+              type="text"
+              class="input"
+              placeholder="Class number"
+              name="query"
+            />
+            <input
+              type="text"
+              class="input"
+              placeholder="Class prof"
+              name="prof"
+            />
+            <select name="offered">
+              <option value="">Anytime</option>
+              <option value="Fall">FA</option>
+              <option value="Spring">SP</option>
+            </select>
 
-    <form method="get" action="/search">
-      <!-- <form method="get" action=""> -->
-      <div class="field has-addons">
-        <div class="control">
-          <input
-            type="text"
-            class="input"
-            placeholder="Class name"
-            name="className"
-          />
-          <input
-            type="text"
-            class="input"
-            placeholder="Class number"
-            name="query"
-          />
-          <input
-            type="text"
-            class="input"
-            placeholder="Class prof"
-            name="prof"
-          />
-          <select name="offered">
-            <option value="">Anytime</option>
-            <option value="Fall">FA</option>
-            <option value="Spring">SP</option>
-          </select>
-          <select name="median">
-            <option value="any">Any</option>
-            <option value="A+">A+</option>
-            <option value="A">A</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-          </select>
-        </div>
+            <!-- <q-select
+              as-input
+              borderless
+              :options="options"
+              label="Borderless"
+              style="width: 120px"
+            /> -->
+            <select name="median">
+              <option value="any">Any</option>
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+            </select>
+          </div>
 
-        <div class="control">
-          <button class="button is-success">search</button>
+          <div class="control">
+            <button class="button is-success">search</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
 
     <div class="columns is-multiline">
       <!-- <div class="column is-12">
@@ -58,12 +78,17 @@
         </h2>
       </div> -->
 
-      <div class="q-pa-md">
+      <div class="q-pa-sm">
+        <div class="row text-white on-left" style="height: 20px">
+          <p>
+            *Note: Course info from Class Roster, medians from Reddit, Prof info
+            from RateMyProf, class difficulties from CUReviews
+          </p>
+        </div>
         <q-table
           class="sticky-header-table"
           virtual-scroll
           :rows-per-page-options="[0]"
-          title="Courses"
           :rows="courses"
           :columns="columns"
           :separator="vertical"
@@ -212,8 +237,11 @@ const columns = [
   },
 ];
 import axios from "axios";
+import NavBar from "../components/NavBar.vue";
+
 export default {
   name: "SearchCourse",
+  components: { NavBar },
   data() {
     return {
       courses: [],
@@ -227,6 +255,7 @@ export default {
       user: {
         inputs: [],
       },
+      options: ["FA", "SP"],
     };
   },
   mounted() {

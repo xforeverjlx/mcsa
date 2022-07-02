@@ -1,7 +1,13 @@
 <template>
   <!-- <q-layout>
     <q-layout-header> -->
-  <div class="q-pa-md" style="background-color: #0b141c">
+  <div class="full-width q-pa-md">
+    <!-- <div class="q-pa-md"> -->
+    <!-- <div class="q-pa-md" style="background-color: #0b141c"> -->
+    <!-- <div
+    class="q-pa-md"
+    style="background-image: linear-gradient(#0b141c, rgb(255, 255, 255))"
+  > -->
     <q-toolbar class="text-white">
       <!-- <q-btn flat dense round aria-label="Menu">
         <q-icon name="menu" />
@@ -12,13 +18,13 @@
         alt="Company logo"
         src="../assets/logo.png"
       />
-      <q-btn flat label="Homepage" />
+      <q-btn flat label="Homepage" to="/" />
 
-      <q-space></q-space>
-      <q-tabs v-model="tab" shrink>
-        <q-tab name="tab1" label="Search" />
-        <q-tab name="tab2" label="About" />
-      </q-tabs>
+      <q-space />
+      <q-btn flat label="Search" to="/search" />
+      <!-- <q-tabs v-model="tab" shrink>
+        <q-tab name="tab1" label="Search" to="/search" />
+      </q-tabs>-->
     </q-toolbar>
   </div>
   <!-- </q-layout-header>
