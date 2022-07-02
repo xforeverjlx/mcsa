@@ -1,5 +1,11 @@
 <template>
-  <div class="page-search">
+  <div class="page-search" style="background-color: #0b141c">
+    <p
+      class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
+    >
+      选课宝典
+    </p>
+
     <form method="get" action="/search">
       <!-- <form method="get" action=""> -->
       <div class="field has-addons">

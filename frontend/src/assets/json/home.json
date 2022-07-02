@@ -14,6 +14,12 @@
             "body": "fwen blah blah.",
             "img": "slope.jpg",
             "linker": "community"
+        },
+	{
+            "title": "Culture",
+            "body": "china blah blah.",
+            "img": "culture.jpg",
+            "linker": "community"
         }
     ]
 }
