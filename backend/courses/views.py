@@ -1,4 +1,5 @@
 # from backend import courses
+from django.db import models
 from django.db.models import Q
 from django.http import HttpResponse
 # from django.shortcuts import render
@@ -53,6 +54,22 @@ def search(request):
       & Q(median__in=medianList)
       & Q(name__icontains=name)
       )
+  courses = courses.annotate( custom_order=
+            models.Case( 
+                models.When(median='', then=models.Value(9)),
+                models.When(median='C-', then=models.Value(8)),
+                models.When(median='C', then=models.Value(7)),
+                models.When(median='C+', then=models.Value(6)),
+                models.When(median='B-', then=models.Value(5)),
+                models.When(median='B', then=models.Value(4)),
+                models.When(median='B+', then=models.Value(3)),
+                models.When(median='A-', then=models.Value(2)),
+                models.When(median='A', then=models.Value(1)),
+                models.When(median='A+', then=models.Value(0)),
+                default=models.Value(10),
+                output_field=models.IntegerField(), )
+            ).order_by('custom_order'
+        )
   serializer = CourseSerializer(courses, many=True)
   return Response(serializer.data)
   # if query:

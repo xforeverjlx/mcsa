@@ -81,8 +81,7 @@
       <div class="q-pa-sm">
         <div class="row text-white on-left" style="height: 20px">
           <p>
-            *Note: Course info from Class Roster, medians from Reddit, Prof info
-            from RateMyProf, class difficulties from CUReviews
+            *Note: Data from Class Roster, Reddit, RateMyProf, and CUReviews
           </p>
         </div>
         <q-table
