@@ -9,7 +9,7 @@
       <NavBar />
       <router-view />
     </div>
-    <div class="row text-white justify-center q-pa-sm">
+    <div class="row text-white justify-center" style="height: 50px">
       <p
         class="text-h3 justify-center font-weight-medium text-uppercase text-center mt-16 primary--text"
       >
@@ -132,6 +132,35 @@
 </template>
 
 <script>
+function sortSem(a, b) {
+  var semOrder = { SP: 2, FA: 1 };
+  var aSem = a.substring(0, 2);
+  var bSem = b.substring(0, 2);
+  var y1 = a.substring(2, 4);
+  var y2 = b.substring(2, 4);
+  if (y1 != y2) {
+    return y1 - y2;
+  }
+  if ((y1 = y2)) {
+    return 10 * (parseInt(y1) - parseInt(y2)) + semOrder[aSem] - semOrder[bSem];
+  }
+}
+function sortTime(a, b) {
+  var timeOrder = { AM: 1, PM: 2 };
+  var h1 = a.substring(0, 2);
+  var m1 = a.substring(3, 5);
+  var aTOD = a.substring(5, 7);
+  var h2 = b.substring(0, 2);
+  var m2 = a.substring(3, 5);
+  var bTOD = b.substring(5, 7);
+  if (timeOrder[aTOD] != timeOrder[bTOD]) {
+    return timeOrder[aTOD] - timeOrder[bTOD];
+  } else {
+    if (h1 != h2) {
+      return parseInt(h1) - parseInt(h2);
+    } else return parseInt(m1) - parseInt(m2);
+  }
+}
 var dict = {
   "A+": 10,
   A: 9,
@@ -172,11 +201,15 @@ const columns = [
     name: "starttime",
     label: "Start Time",
     field: (row) => row.start_time,
+    sortable: true,
+    sort: (a, b) => sortTime(a, b),
   },
   {
     name: "endtime",
     label: "End Time",
     field: (row) => row.end_time,
+    sortable: true,
+    sort: (a, b) => sortTime(a, b),
   },
   {
     name: "offered",
@@ -197,42 +230,51 @@ const columns = [
     label: "Semester of Median",
     field: (row) => row.median_semester,
     style: "background-color: #EAFAF1",
+    sortable: true,
+    sort: (a, b) => sortSem(a, b),
   },
   {
     name: "median_prof",
     label: "Prof of Median",
     field: (row) => row.median_prof,
     style: "background-color: #EAFAF1",
+    sortable: true,
   },
   {
     name: "prof_diff",
     label: "Prof's Difficulty",
     field: (row) => row.prof_diff,
+    sortable: true,
   },
   {
     name: "prof_rating",
     label: "Prof's Rating",
     field: (row) => row.prof_rating,
+    sortable: true,
   },
   {
     name: "prof_num_rating",
     label: "Prof's # of Ratings",
     field: (row) => row.prof_num_rating,
+    sortable: true,
   },
   {
     name: "class_diff",
     label: "Class' Difficulty",
     field: (row) => row.class_diff,
+    sortable: true,
   },
   {
     name: "class_rating",
     label: "Class' Rating",
     field: (row) => row.class_rating,
+    sortable: true,
   },
   {
     name: "class_workload",
     label: "Class' Workload",
     field: (row) => row.class_workload,
+    sortable: true,
   },
 ];
 import axios from "axios";
@@ -311,7 +353,7 @@ export default {
 
 .sticky-header-table
   /* height or max-height is important */
-  height: 750px
+  height: 700px
 
   .q-table__top,
   .q-table__bottom,
